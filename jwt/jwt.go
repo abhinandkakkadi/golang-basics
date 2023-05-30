@@ -29,4 +29,16 @@ func (u *userClaims) Valid() error {
 
 	return nil
 }
+
+
+func CreateToken(c *userClaims) (string,error) {
+	
+	token := jwt.NewWithClaims(jwt.SigningMethodES256,c)
+
+	signedToken,err := token.SignedString([]byte("abhinand"))
+	if err != nil {
+		return "",err
+	}
+	return signedToken,nil
+}
  
