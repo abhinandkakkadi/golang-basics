@@ -3,12 +3,13 @@ package main
 import (
 	"fmt"
 
-	"github.com/abhinandkakkadi/golangbasics/handler"
+	"github.com/abhinandkakkadi/golangbasics/errorhandler"
 )
 
 func main() {
 
 	fmt.Println("going to handle a panic using defer")
-	handler.DeferExample()
+	errorhandler.DeferExample()
 	fmt.Println("this code is printed since the error is handled")
+
 }	
