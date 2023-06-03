@@ -22,7 +22,7 @@ func PrintDetails(s string, count chan int) {
 	defer wg.Done()
 
 	for {
-		r,ok := <-count
+		r,ok := <- count
 
 		if !ok {
 			return
@@ -33,7 +33,7 @@ func PrintDetails(s string, count chan int) {
 		r++
 		if r == 10 {
 			close(count)
-			return
+			// return
 		}
 
 		count <- r
