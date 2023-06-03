@@ -2,13 +2,11 @@ package errorhandler
 
 import "fmt"
 
-
-
 func DeferExample() {
 
-	defer func(){
+	defer func() {
 		if e := recover(); e != nil {
-				fmt.Println("the panicked message: ",e)
+			fmt.Println("the panicked message: ", e)
 		}
 	}()
 	panic("this is panicked message")

@@ -18,8 +18,8 @@ type userClaims struct {
 }
 
 func (u *userClaims) Valid() error {
-	
-	if !u.VerifyExpiresAt(time.Now().Unix(),true) {
+
+	if !u.VerifyExpiresAt(time.Now().Unix(), true) {
 		return fmt.Errorf("token has expired")
 	}
 
@@ -30,15 +30,13 @@ func (u *userClaims) Valid() error {
 	return nil
 }
 
+func CreateToken(c *userClaims) (string, error) {
 
-func CreateToken(c *userClaims) (string,error) {
-	
-	token := jwt.NewWithClaims(jwt.SigningMethodES256,c)
+	token := jwt.NewWithClaims(jwt.SigningMethodES256, c)
 
-	signedToken,err := token.SignedString([]byte("abhinand"))
+	signedToken, err := token.SignedString([]byte("abhinand"))
 	if err != nil {
-		return "",err
+		return "", err
 	}
-	return signedToken,nil
+	return signedToken, nil
 }
- 

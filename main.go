@@ -14,6 +14,5 @@ func main() {
 	fmt.Println("this code is printed since the error is handled")
 
 	structembed.StructEmbeding()
-	
 
-}	
+}

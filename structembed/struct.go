@@ -2,7 +2,6 @@ package structembed
 
 import "fmt"
 
-
 type Cat struct {
 	Name string
 }
