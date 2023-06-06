@@ -21,5 +21,6 @@ func StructEmbeding() {
 	c.Sound()
 
 	t := Tiger{Cat: Cat{Name: "Mal"}}
-	t.Cat.Sound()
+	// tiger instance  can call sound since tiger hve embedded cat by the property of composition.
+	t.Sound()
 }
