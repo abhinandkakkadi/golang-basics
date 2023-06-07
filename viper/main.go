@@ -22,11 +22,11 @@ func main() {
 		fmt.Println(err)
 	}
 
-	fmt.Println(vp.GetString("name"))
+	fmt.Println(vp.GetString("name")) //here unmarshalling is happening. That is conversion of abhinand kr json data to string 
 
 	// In order to write to the file specified
-	vp.Set("age", 23)
-	vp.WriteConfig()
+	vp.Set("age", 23)   // here marshalling is happening. That is conversion of string to json
+	vp.WriteConfig() 
 
 	config,err := util.LoadConfig() 
 	if err != nil {
