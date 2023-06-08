@@ -55,7 +55,7 @@ func createToken(c *UserClaims) (string,error) {
 func parseToken(signedToken string) (*UserClaims,error) {
 	
 	t,err := jwt.ParseWithClaims(signedToken,&UserClaims{},func (t *jwt.Token) (interface{},error){
-
+		//  the t inside is before it is  verified token and the one outside is verified token. both are kind of same but is in different state
 		if t.Method.Alg() != jwt.SigningMethodHS512.Alg() {
 			return nil,errors.New("signing algorithm error")
 		}

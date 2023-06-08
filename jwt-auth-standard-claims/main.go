@@ -24,7 +24,6 @@ func main() {
 		fmt.Println(err)
 	}
 	fmt.Println("claims returned : ",claimsReturned)
-
 }
 
 
