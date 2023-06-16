@@ -7,7 +7,6 @@ import (
 	"io"
 )
 
-
 func main() {
 
 	c := getCode("test@example.com")
@@ -18,9 +17,9 @@ func main() {
 
 func getCode(s string) string {
 
-	h := hmac.New(sha256.New,[]byte("secret-key"))
-	io.WriteString(h,s)
-	return fmt.Sprintf("%x",h.Sum(nil))
+	h := hmac.New(sha256.New, []byte("secret-key"))
+	io.WriteString(h, s)
+	return fmt.Sprintf("%x", h.Sum(nil))
 
 }
 

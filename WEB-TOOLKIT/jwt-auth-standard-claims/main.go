@@ -10,51 +10,50 @@ import (
 
 func main() {
 	claims := &jwt.StandardClaims{
-		ExpiresAt : time.Now().Add(time.Hour).Unix(),
-		Subject : "just a normal token",
+		ExpiresAt: time.Now().Add(time.Hour).Unix(),
+		Subject:   "just a normal token",
 	}
-	signedToken,err := createToken(claims)
+	signedToken, err := createToken(claims)
 	if err != nil {
 		fmt.Println(err)
 	}
-	fmt.Println("signed token : ",signedToken)
+	fmt.Println("signed token : ", signedToken)
 
-	claimsReturned,err := GenerateToken(signedToken)
+	claimsReturned, err := GenerateToken(signedToken)
 	if err != nil {
 		fmt.Println(err)
 	}
-	fmt.Println("claims returned : ",claimsReturned)
+	fmt.Println("claims returned : ", claimsReturned)
 }
 
+func createToken(claims *jwt.StandardClaims) (string, error) {
 
-func createToken(claims *jwt.StandardClaims) (string,error) {
+	token := jwt.NewWithClaims(jwt.SigningMethodHS512, claims)
 
-	token := jwt.NewWithClaims(jwt.SigningMethodHS512,claims)
-
-	signedToken,err := token.SignedString([]byte("abhinand"))
+	signedToken, err := token.SignedString([]byte("abhinand"))
 	if err != nil {
-		return "",err
+		return "", err
 	}
 
-	return signedToken,nil
+	return signedToken, nil
 }
 
-func GenerateToken(signedToken string) (*jwt.StandardClaims,error) {
+func GenerateToken(signedToken string) (*jwt.StandardClaims, error) {
 
-	token ,err := jwt.ParseWithClaims(signedToken,&jwt.StandardClaims{},func(token *jwt.Token) (interface{},error) {
+	token, err := jwt.ParseWithClaims(signedToken, &jwt.StandardClaims{}, func(token *jwt.Token) (interface{}, error) {
 
 		// here we can get the identifier and in this case we can directly use the variable and not the type of the variable
 		if token.Method.Alg() != jwt.SigningMethodHS512.Alg() {
-			return nil,errors.New("signing method error")
+			return nil, errors.New("signing method error")
 		}
 
-		return []byte("abhinand"),nil
+		return []byte("abhinand"), nil
 	})
 
 	if err != nil {
-		return nil,err
+		return nil, err
 	}
 
 	claims := token.Claims.(*jwt.StandardClaims)
-	return claims,nil
+	return claims, nil
 }

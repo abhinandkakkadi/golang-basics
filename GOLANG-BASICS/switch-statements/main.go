@@ -31,7 +31,7 @@ func main() {
 		fmt.Println("nothing is correct")
 	}
 
-	// fallthrough way -- usually if one condition is right then rest of them will not execute. But in this case 
+	// fallthrough way -- usually if one condition is right then rest of them will not execute. But in this case
 	// even though the first condition is right second condition will be checked
 
 	switch {

@@ -5,9 +5,8 @@ import (
 	"fmt"
 )
 
-
 func main() {
 
-	word := flag.Int("val",2,"Enter a number")
+	word := flag.Int("val", 2, "Enter a number")
 	fmt.Println(*word)
 }

@@ -8,7 +8,7 @@ import (
 // creating a file using os package
 func main() {
 
-	file,err := os.Create("test.txt")
+	file, err := os.Create("test.txt")
 	if err != nil {
 		log.Fatal(err.Error())
 	}
@@ -16,7 +16,7 @@ func main() {
 	defer file.Close()
 
 	// write some string to file
-	_,err = file.WriteString("Hey my name is abhinand")
+	_, err = file.WriteString("Hey my name is abhinand")
 	if err != nil {
 		log.Fatal(err.Error())
 	}

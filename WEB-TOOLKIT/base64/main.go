@@ -24,12 +24,12 @@ func main() {
 
 	// inorder to decode to string
 
-	bs,err := base64.StdEncoding.DecodeString(s64)
+	bs, err := base64.StdEncoding.DecodeString(s64)
 	if err != nil {
-		log.Fatal("the error is ",err)
+		log.Fatal("the error is ", err)
 	}
 
-	fmt.Println(s64,s264)
+	fmt.Println(s64, s264)
 	fmt.Println(string(bs))
 
 }

@@ -6,12 +6,10 @@ import (
 )
 
 // Here the type is available outside the class but the fields are not, in order to access those fields we can make use of public methods
-//
 type Person struct {
 	name string
-	age int
+	age  int
 }
-
 
 // This is the idiomatic way of writing Setter function using a Set in front of the field name
 func (p *Person) SetName(name string) {
@@ -20,16 +18,15 @@ func (p *Person) SetName(name string) {
 
 // In cases where we want some constraints to check before adding value directly to the field using . operator this can be used
 // if this function was not provided even if the user type in age 500. there is no one to check the authenticity for that.
-// But using SetAge functionality we can give conditions for error handling 
+// But using SetAge functionality we can give conditions for error handling
 func (p *Person) SetAge(age int) error {
-	
+
 	if age > 100 {
 		return errors.New("age should be below 100")
 	}
 
 	p.age = age
 }
-
 
 // This is the idiomatic way of writing Getter function. i.e capitalized form of the field name
 // We can distinguish between the field and function name as function is in capitalized form - and setter and getter are only required when fields are private/unexported

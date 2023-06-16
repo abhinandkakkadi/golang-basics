@@ -30,7 +30,7 @@ type Go struct {
 func main() {
 
 	// here we are creating a new empty instance address of Go and it is calling functions
-	// which have Pascal as receiver. This is possible because Go embeds Pascal and due the property called composition 
+	// which have Pascal as receiver. This is possible because Go embeds Pascal and due the property called composition
 	// we are able to do the above thing
 
 	g := &Go{}
