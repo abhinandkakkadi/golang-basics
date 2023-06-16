@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-
+// here the property of inheritence and function overloading is applied
 type Pascal struct {
 	s string
 }
